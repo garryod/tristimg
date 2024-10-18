@@ -13,7 +13,7 @@ COPY src/ src/
 RUN touch src/main.rs \
   && cargo build --release
 
-FROM gcr.io/distroless/cc-debian12@sha256:3b75fdd33932d16e53a461277becf57c4f815c6cee5f6bc8f52457c095e004c8 AS deploy
+FROM gcr.io/distroless/cc-debian12@sha256:3310655aac0d85eb9d579792387af1ff3eb7a1667823478be58020ab0e0d97a8 AS deploy
 
 COPY --from=build /app/target/release/tistimg /tristimg
 
