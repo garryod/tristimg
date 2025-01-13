@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v4.2.1
+        uses: actions/checkout@v4.2.2
 
       - name: Install stable Toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1.10.1
 
       - name: Cache Rust Build
-        uses: Swatinem/rust-cache@v2.7.5
+        uses: Swatinem/rust-cache@v2.7.7
 
       - name: Run Tests
         run: >
