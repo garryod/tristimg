@@ -49,7 +49,7 @@ impl Collection {
                 data_file_path.push(data_file_name);
                 data_files.push(File::open(&data_file_path)?);
             }
-            modules.push(Module::new(data_files));
+            modules.push(Module::new(data_files)?);
             file_number_offset += module_file_count;
         }
 
