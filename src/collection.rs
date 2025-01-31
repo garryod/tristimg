@@ -1,3 +1,4 @@
+use crate::module::Module;
 use hdf5::File;
 use ptree::{item::StringItem, TreeBuilder};
 use std::path::PathBuf;
@@ -13,13 +14,6 @@ pub enum Error {
     NoFileStem,
     #[error("Could not determine parent direcotry of NeXus file")]
     NoParentDirecory,
-}
-
-/// A detector module
-#[derive(Debug)]
-pub struct Module {
-    /// The data files written by the module
-    data_files: Vec<File>,
 }
 
 /// A data collection
@@ -55,7 +49,7 @@ impl Collection {
                 data_file_path.push(data_file_name);
                 data_files.push(File::open(&data_file_path)?);
             }
-            modules.push(Module { data_files });
+            modules.push(Module::new(data_files));
             file_number_offset += module_file_count;
         }
 
@@ -67,7 +61,7 @@ impl Collection {
         let mut tree = TreeBuilder::new("collection".to_string());
         for (module_idx, module) in self.modules.iter().enumerate() {
             tree.begin_child(format!("module_{module_idx}"));
-            for data_file in module.data_files.iter() {
+            for data_file in module.files().iter() {
                 tree.add_empty_child(data_file.filename());
             }
             tree.end_child();

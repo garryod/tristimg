@@ -5,6 +5,8 @@
 
 /// Utilities for loading data collections from NeXus / HDF5
 mod collection;
+/// Utilities for streaming module data
+pub mod module;
 
 use clap::{Parser, Subcommand};
 use collection::Collection;
