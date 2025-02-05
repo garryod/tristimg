@@ -5,6 +5,8 @@
 
 /// Utilities for loading data collections from NeXus / HDF5
 mod collection;
+/// Photon events obsrved by the detector modules
+mod event;
 /// Utilities for streaming module data
 pub mod module;
 
