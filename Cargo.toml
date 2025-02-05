@@ -11,6 +11,6 @@ hdf5 = { git = "https://github.com/aldanor/hdf5-rust.git", rev = "43015ddaa87e62
 ] }
 num_enum = "0.7.3"
 ptree = "0.5.0"
-thiserror = "1.0.64"
+thiserror = "2.0.3"
 tracing = "0.1.40"
 tracing-subscriber = "0.3.18"
